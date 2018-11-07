@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+    <header class = "jumbotron">
+        <div class="container">
+            <h2>Credit Card</h2>
+            <p></p>
+            <p>
+                <a class="btn btn-primary btn-sm" href="/creditcards/new">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Add Credit Card</a>     
+            </p>
+        </div>
+    </header>
+
+
+   
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Card Number</th>
+            <th>Expiration Date</th>
+            <th>Secret Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allCreditCards.forEach(function(creditcard){ %>
+              <tr>
+                <td><%= creditcard.cardnumber %></td>
+                <td><%= creditcard.dateexpire.substr(0,3)+"-"+
+                        creditcard.dateexpire.substr(-2) %></td>
+                <td><%= "**" + creditcard.code.substr(-1) %></td>
+              </tr>
+          <% }) %>
+        </tbody>
+      </table>
+ 
+
+</div>
+
+<% include ../partials/footer %>

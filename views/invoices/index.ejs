@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+    <header class = "jumbotron">
+        <div class="container">
+            <h2>Invoices</h2>
+            <p></p>
+            <p>
+                <a class="btn btn-primary btn-sm" href="/invoices/new">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Add New Invoice</a>     
+                
+            </p>
+            
+        </div>
+    </header>
+    
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Phone</th>
+            <th>No. Service</th>
+            <th>Service</th>
+            <th>Amount</th>
+            <th>Limite Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allInvoices.forEach(function(invoice){ %>
+              <tr>
+                <td><%= invoice.servicereg.phone %></td>
+                <td><%= invoice.servicereg.noservice %></td>
+                <td><%= invoice.servicereg.service %></td>
+                <td><%= invoice.amount %></td>
+                <td><%= invoice.limitedate %></td>
+              </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+
+</div>
+<% include ../partials/footer %>

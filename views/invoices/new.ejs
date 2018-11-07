@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+<div class = "container">
+    <div class= "row">
+        <h1 style="text-align: center">Create a New Invoice</h1>
+        <div style="width: 30%; margin: 25px auto;">
+             
+            <form action="/invoices" method="POST">
+                <div class="form-group">
+                    <!--<label for="birthday" class="col-xs-3 col-sm-2 control-label">Birthday</label>-->
+                    <div class="col-xs-5">
+                        <select class="form-control" required name = "service">
+                            <option value="" disabled selected>Services</option>
+                            <% allServices.forEach(function(service){ %>
+                                <option value = "<%= service.noservice %>"><%= service.service %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='date' name="limitedate" class="form-control" required/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class = "form-control" type="number" name="amount" value=0.00 placeholder="Total" required>
+                </div>
+                
+                <div class="form-group"> 
+                    <button class = "btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            
+            <div class="text-right">
+                <a class="btn btn-xs btn-default" href="/invoices"> Go Back </a>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+<% include ../partials/footer %>

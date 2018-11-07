@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+    <header class = "jumbotron">
+        <div class="container">
+            <h2>Services</h2>
+            <p></p>
+            <p>
+                <a class="btn btn-primary btn-sm" href="/services/new">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Add Services</a>     
+            </p>
+        </div>
+    </header>
+
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Service Number</th>
+            <th>Service</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allServices.forEach(function(service){ %>
+              <tr>
+                <td><%= service.noservice %></td>
+                <td><%= service.service %></td>
+                <td><%= service.phone %></td>
+              </tr>
+          <% }) %>
+        </tbody>
+      </table>
+ 
+
+</div>
+
+<% include ../partials/footer %>
